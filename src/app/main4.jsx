@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react'
+'use client'
+import React, { useEffect, useRef, useState } from 'react'
 import Main5 from './main5'
 
 export default function main4() {
@@ -8,51 +9,55 @@ export default function main4() {
     const span2 = useRef(null)
     const span3 = useRef(null)
     const span4 = useRef(null)
-    window.addEventListener('scroll', () => {
-        setScrol(scrollY/10)
-        // console.log(scrol);
-        if (scrol > 300) {
+    useEffect(()=>{
+        window?.addEventListener('scroll', () => {
+            setScrol(scrollY/10)
             // console.log(scrol);
-            span1.current.style.transform = 'translateY(' + scrol+1800+ '%)'
-            span1.current.style.transition = '.2s'
+            if (scrol > 300) {
+                // console.log(scrol);
+                span1.current.style.transform = 'translateY(' + scrol+1800+ '%)'
+                span1.current.style.transition = '.2s'
+    
+            }else if(span1.current){
+                span1 && (span1.current.style.transform = 'translateY(-500%)')
+                span1 && (span1.current.style.transition = '.2s')
+    
+            }
+            if (scrol > 320) {
+                // console.log(scrol);
+                span2.current.style.transform = 'translateY(' + scrol+1800+ '%)'
+                span2.current.style.transition = '.2s'
+    
+            }else{
+                span2.current.style.transform = 'translateY(-500%)'
+                span2.current.style.transition = '.2s'
+    
+            }
+            if (scrol > 340) {
+                // console.log(scrol);
+                span3.current.style.transform = 'translateY(' + scrol+1800+ '%)'
+                span3.current.style.transition = '.2s'
+    
+            }else{
+                span3.current.style.transform = 'translateY(-500%)'
+                span3.current.style.transition = '.2s'
+    
+            }
+            if (scrol > 360) {
+                // console.log(scrol);
+                span4.current.style.transform = 'translateY(' + scrol+1800+ '%)'
+                span4.current.style.transition = '.2s'
+    
+            }else{
+                span4.current.style.transform = 'translateY(-500%)'
+                span4.current.style.transition = '.2s'
+    
+            }
+             
+        })
 
-        }else{
-            span1 && (span1.current.style.transform = 'translateY(-500%)')
-            span1 && (span1.current.style.transition = '.2s')
-
-        }
-        if (scrol > 320) {
-            // console.log(scrol);
-            span2.current.style.transform = 'translateY(' + scrol+1800+ '%)'
-            span2.current.style.transition = '.2s'
-
-        }else{
-            span2.current.style.transform = 'translateY(-500%)'
-            span2.current.style.transition = '.2s'
-
-        }
-        if (scrol > 340) {
-            // console.log(scrol);
-            span3.current.style.transform = 'translateY(' + scrol+1800+ '%)'
-            span3.current.style.transition = '.2s'
-
-        }else{
-            span3.current.style.transform = 'translateY(-500%)'
-            span3.current.style.transition = '.2s'
-
-        }
-        if (scrol > 360) {
-            // console.log(scrol);
-            span4.current.style.transform = 'translateY(' + scrol+1800+ '%)'
-            span4.current.style.transition = '.2s'
-
-        }else{
-            span4.current.style.transform = 'translateY(-500%)'
-            span4.current.style.transition = '.2s'
-
-        }
-         
     })
+    
 
 
 

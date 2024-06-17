@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react'
@@ -12,38 +13,44 @@ export default function main3() {
     const sec5 = useRef()
     const [scr, setScr] = useState(0)
     const [wid, setWid] = useState(0)
+    // let window = window
     useEffect(() => {
         setWid(window.innerWidth)
-        // console.log(wid);
+        window?.addEventListener('scroll', () => {
+            setScr(scrollY)
+           
+            // console.log(scr);
+            if (scr > 1100 && wid >= 1024 ) {
+                sec1.current.style.position = 'sticky'
+                sec1.current.style.top = '15vh'
+                sec1.current.style.scale = 1000 / scr
+                sec2.current.style.position = 'sticky'
+                sec2.current.style.top = '15vh'
+                sec2.current.style.transform = 'translateY(-' + (scr - 1050) + 'px)'
+                sec2.current.style.scale = 1200 / scr
+                sec3.current.style.position = 'sticky'
+                sec3.current.style.top = '15vh'
+                sec3.current.style.transform = 'translateY(-' + (scr - 950) + 'px)'
+                sec3.current.style.scale = 1400 / scr
+                sec4.current.style.position = 'sticky'
+                sec4.current.style.top = '15vh'
+                sec4.current.style.transform = 'translateY(-' + (scr - 850) + 'px)'
+                sec4.current.style.scale = 1600 / scr
+                sec5.current.style.position = 'sticky'
+                sec5.current.style.top = '15vh'
+                sec5.current.style.transform = 'translateY(-' + (scr - 750) + 'px)'
+                sec5.current.style.scale = 1800 / scr
+                
+    
+            } 
+        })
+        
     })
-    window.addEventListener('scroll', () => {
-        setScr(scrollY)
-       
-        // console.log(scr);
-        if (scr > 1100 && wid >= 1024 ) {
-            sec1.current.style.position = 'sticky'
-            sec1.current.style.top = '15vh'
-            sec1.current.style.scale = 1000 / scr
-            sec2.current.style.position = 'sticky'
-            sec2.current.style.top = '15vh'
-            sec2.current.style.transform = 'translateY(-' + (scr - 1050) + 'px)'
-            sec2.current.style.scale = 1200 / scr
-            sec3.current.style.position = 'sticky'
-            sec3.current.style.top = '15vh'
-            sec3.current.style.transform = 'translateY(-' + (scr - 950) + 'px)'
-            sec3.current.style.scale = 1400 / scr
-            sec4.current.style.position = 'sticky'
-            sec4.current.style.top = '15vh'
-            sec4.current.style.transform = 'translateY(-' + (scr - 850) + 'px)'
-            sec4.current.style.scale = 1600 / scr
-            sec5.current.style.position = 'sticky'
-            sec5.current.style.top = '15vh'
-            sec5.current.style.transform = 'translateY(-' + (scr - 750) + 'px)'
-            sec5.current.style.scale = 1800 / scr
-            
+    
+        
 
-        } 
-    })
+    
+   
 
     const[_moveX , setMoveX] = useState(0)
     const[_moveY , setMoveY] = useState(0)

@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useRef, useState, useCallback, useLayoutEffect } from 'react'
 import MyComponent from './exam'
 
